@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
-    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+    <link src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous"></link>
     <link rel="icon" href="{% static 'IMG/logo2.png' %}">
     <script>
         let url='https://api.thedogapi.com/v1/breeds';
@@ -29,8 +29,9 @@
                 console.log(data)
                 let body = ""
                 for (var i = 0; i < data.length; i++){
-                    body+=`<tr><td id="TextApi">${data[i].name}</td><td><img id="imgApi" class="center" src = ${data[i].image.url}>
-                    </td></tr>`
+                    body += `<tr><td id="TextApi">${data[i].name}</td>
+                        <td id="dataApi">${data[i].temperament}" </td></tr>`;
+
                 };
                 document.getElementById('data').innerHTML = body
             }
@@ -119,7 +120,7 @@
                 <thead>
                     <tr>
                         <th>Raza</th>
-                        <th>Imagen de Referencia</th>
+                        <th>Personalidad de la mascota</th>
                     </tr>
                 </thead>
                 <tbody id="data">
