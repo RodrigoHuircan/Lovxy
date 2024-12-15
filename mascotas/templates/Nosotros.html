@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/EstilosGlobales.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/EstiloNosotros.css' %}">
+    <link rel="stylesheet" href="{% static 'css/EstiloNavbar.css' %}" type="text/css">
+    <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}" crossorigin>  
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="{% static 'IMG/logo2.png' %}">
+    <title>Nosotros</title>
+</head>
+<body> 
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #000000;" id="barraNav">
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+        data-target="#opciones">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a href="{% url 'Inicio' %}" class="navbar-brand">
+            <img src="{% static 'IMG/logo2.png' %}" width="30px" height="30px">
+        </a>
+
+        <div class="collapse navbar-collapse" id="opciones">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Inicio' %}">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Nosotros' %}">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Galeria' %}">Galería</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'Contacto' %}">Contacto</a>
+                </li>
+            </ul>
+    
+            {%  if user.is_authenticated %}   
+
+                <ul class="navbar-nav mr-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Tienda' %}">Tienda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'Disponible' %}">Inventario</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">¡Bienvenido {{user.username}}!</a>
+                    </li>
+                </ul>
+
+    
+    
+            {% else %}
+    
+                    <a href="{% url 'Registrar' %}" id="user">
+                        <img src="{% static 'img/User_nuevo.png' %}" width="20px" style="margin-left: 5px;" >  Registrarse
+                </li>
+    
+            {% endif %}
+    
+            <div>
+                {% if user.is_authenticated %}
+    
+                    <a href="{% url 'logout' %}" id="user">    
+                        <img src="{% static 'img/Logout.png' %}" width="20px" style="margin-left: 5px;">  Cerrar Sesión
+                    </a>
+    
+                {% else %}
+    
+                    <a href="{% url 'login' %}" id="users">
+                        <img src="{% static 'img/Login.png' %}" width="20px" style="margin-left: 5px;">  Iniciar Sesión
+                    </a>
+                    
+                {% endif %}
+            </div>
+        </div>
+    </nav> <!--Cierre de menú-->
+
+
+<!--Imagen encabezado-->
+
+    <div class="container">
+        <div class="imagen">
+            <img src="{% static 'IMG/visionymision.jpg' %}" alt="Mision y vision">
+        </div>
+    </div>
+<!--fin imagen encabezado-->
+
+<!--Inicio texto--> 
+<br><br>
+            
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="texto">
+                <h1><b>Misión</b></h1> 
+                <p>La misión de Lovxy nace de nuestro amor por los animales y las ganas de ayudar a mascotas alrededor de Chile, logrando un prestigio que nos haga perdurar en el tiempo, ampliando nuestro alcance moral y ético. Esto nos motivó a desarrollar una tienda para apoyar de forma monetaria a la fundación ARCA, que se especializa en cuidar animales sin hogar y entregarles una vida digna llena de cariño. En nuestro equipo de trabajo somos solidarios socialmente, brindando especial atención en nuestros productos e innovando constantemente para seguir creciendo y colaborar por un mundo más feliz, amparando y protegiendo a los animales.</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="texto">
+                <h1><b>Visión</b></h1>
+                <p>Los valores que se destacan de Lovxy son el compromiso para formar un vínculo especial de dueño a mascota, a través de la comercialización de los mejores productos dedicados al bienestar de los animales, brindándoles confianza, respeto y afecto, creando ambientes ideales para la felicidad y satisfacción de nuestros clientes.</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div>
+        <div class="texto">
+            <h1><b>Conoce más de Fundación ARCA</b></h1>
+            <p>ARCA es una organización sin fines de lucro, compuesta por un equipo multidisciplinario de profesionales, tales como médicos veterinarios y abogados, todos versados en el manejo y cuidado animal.
+            Esta organización nace a fines del año 2016, como una respuesta a la problemática chilena en cuanto a la situación de abandono de animales en el país. Movidos por la necesidad de disminuir la población flotante de animales de compañía abandonados en las calles, constatamos que esta situación de abandono responde a la falta de educación ciudadana en esta materia y a prácticas y costumbres de manejo animal que se mantienen, equivocadamente, a lo largo de los años, incidiendo negativamente en la dinámica relacional entre los seres humanos y el resto de los animales.</p>
+            <a href="https://fundacionarca.cl/"> 
+                <button type="button" class="btn btn-outline-dark">Visita ARCA</button>
+            </a>
+        </div>
+    </div>
+    <br><br><br>
+
+        <div class="video">
+            <!--Incorporamos el video de yt, para hacerlo abrimos el video de yt y damos a compartir, luego presionamos incrustar y copiamos el codigo que nos deja-->
+            <iframe src="https://www.youtube.com/embed/aIXdfw-ZkKQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>    
+        </div>
+</div>
+ <!--Fin texto-->
+
+
+ <!--Pié de página-->
+    <footer class="pie-pagina">
+        <div class="seccion1">
+            <div class="info">
+                <figure>
+                    <a href="{% url 'Inicio' %}">
+                        <img src="{% static 'img/Lovxy.png' %}" alt="Logo">
+                    </a>
+                </figure>
+            </div>
+            <div class="info">
+                <h2><b>Contacto</b></h2>
+                <p>Whatsapp: +56 9 4470 4362 </p>
+                <p>Correo: contacto@lovxy.cl </p>
+                <p>Horario de atención: </p>
+                <p>Lunes a viernes de 10:00 a 19:00 hrs </p>
+            </div>
+            <div class="info">
+                <h2><b>Síguenos</b></h2>
+                <div class="red-social">
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-instagram"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+                </div>
+            </div>
+        </div>
+        <div class="seccion2">
+            <div class="info">
+                <small>&copy; 2023 <b>Lovxy</b> - Todos los Derechos Reservados.</small>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
+</body>
+</html>

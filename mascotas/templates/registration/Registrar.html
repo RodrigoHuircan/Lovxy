@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/EstiloNavbar.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/EstiloTarjeta.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/EstilosGlobales.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/EstiloNosotros.css' %}" type="text/css">
+    <link rel="preconnect" href="{% static 'https://fonts.googleapis.com' %}">
+    <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="{% static 'IMG/logo2.png' %}">
+    <title>Registrar</title>
+</head>
+<body>
+
+{% load crispy_forms_tags %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h2>Registro de Nuevo Usuario</h2>
+                    <hr>
+                    <form action="#" method="POST">
+                        {% csrf_token %}
+                        {{ form | crispy}}
+                        <a href="{% url 'Inicio' %}">Inicio</a> | 
+                        <a href="{% url 'login' %}">Login</a>
+                        <input type="submit" value="Registrar" class="btn btn-success" style="float:right">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

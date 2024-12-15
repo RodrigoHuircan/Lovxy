@@ -1,0 +1,22 @@
+#imgApi{
+    width: 50%;
+    border-radius: 5px;
+}
+
+#TextApi{
+    font-style: italic;
+}
+
+.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+th{
+    background-color: #000000 !important;
+    color: white !important;
+    text-decoration: none !important;
+    font-weight: lighter;
+}

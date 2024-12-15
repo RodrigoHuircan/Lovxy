@@ -1,0 +1,7 @@
+Codigo: el cod del producto ej: 001
+Nombre: Collar Rojo
+Precio: valor
+Categoria: ej Accesorios, Ropas, Zapatos, juguetes
+Tipo: por ej: si es juguete de goma o si es ropa de algodon etc
+Tamaño: si es juguete tamaño pequeño o S
+Imagen: Una foto
