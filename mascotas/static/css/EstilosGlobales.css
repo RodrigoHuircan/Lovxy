@@ -83,3 +83,7 @@
         padding: 35px 0px;
     }
 }
+
+.carousel-item {
+    transition: opacity 1s ease-in-out; /* Controla la duración y el tipo de transición */
+}

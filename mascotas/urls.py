@@ -13,7 +13,6 @@ urlpatterns=[
     path('Disponible/', Disponible, name = "Disponible"),
     path('Eliminar/<id>', Eliminar, name = "Eliminar"),
     path('Modificar/<id>', Modificar, name = "Modificar"),
-    path('Mostrar/', Mostrar, name = "Mostrar"),
     path('generarBoleta/', generarBoleta,name="generarBoleta"),
     path('agregar/<id>', agregar_producto, name="agregar"),
     path('eliminar/<id>', eliminar_producto, name="eliminar"),

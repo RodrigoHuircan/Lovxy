@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'mascotas',
     'pure_pagination',
-    'bootstrap4'
 ]
 
 CRISPY_TEMPLATE_PACK='bootstrap4'

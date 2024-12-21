@@ -1,3 +1,10 @@
+label.error {
+    margin-top: 5px !important; 
+    color: red !important;
+    font-size: 0.8em !important;
+    display: block !important;
+}
+
 #enviar{
     clear: both;
     float:left;
@@ -5,6 +12,7 @@
     font-weight: bold;
 
 }
+
 #limpiar{
     float: left;
     width: 100px;
@@ -12,15 +20,4 @@
     font-weight: bold;
 
 }
-.error-control{
-    border: 1px solid red;
-}
-label.error{
-    color:red;
-    width: 250px;
-    font-size: 0.8em;
-    margin-top:-5px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    font-weight: lighter;
-}
+

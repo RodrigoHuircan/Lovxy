@@ -1,5 +1,4 @@
 //validar
-
 $(function () {
   $("#LovxyForm").validate({
     rules: {
