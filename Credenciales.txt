@@ -1,4 +1,4 @@
 Admin
 
-user: FeñaRodri
-pass: duoc1234
+User: FeñaRodri
+Password: duoc1234

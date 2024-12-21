@@ -40,9 +40,11 @@ INSTALLED_APPS = [
     'crispy_forms',
     'mascotas',
     'pure_pagination',
+    'crispy_bootstrap5',
 ]
 
-CRISPY_TEMPLATE_PACK='bootstrap4'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -137,3 +139,6 @@ MEDIA_ROOT = BASE_DIR / "files"
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+

@@ -6,6 +6,9 @@ from django.contrib.auth import authenticate, login
 from django.core.paginator import Paginator
 from mascotas.compra import Carrito
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import Group
+from django.contrib import messages
+from django.http import JsonResponse
 # Create your views here.
 
 def Inicio(request):
@@ -75,11 +78,13 @@ def Registrar(request):
     if request.method=="POST":
         formulario=RegistroUserForm(data=request.POST)
         if formulario.is_valid():
-            formulario.save()
-            user=authenticate(username=formulario.cleaned_data["username"], password=formulario.cleaned_data["password1"])
-            login(request,user)
-            return redirect ('Inicio')
-        data["form"]=formulario   
+            usuario = formulario.save()
+            grupo_clientes = Group.objects.get(name='Clientes')
+            usuario.groups.add(grupo_clientes)
+            return JsonResponse({'success': True, 'message': 'Registro exitoso. Por favor, inicia sesión.'})
+        else:
+            return JsonResponse({'success': False, 'message': formulario.errors.as_json()})
+ 
     return render(request,'registration/Registrar.html', data)
 
 def Mostrar(request):
@@ -125,6 +130,7 @@ def limpiar_carrito(request):
     return redirect('Tienda')    
 
 
+@login_required
 def generarBoleta(request):
     precio_total=0
     User = get_user_model()

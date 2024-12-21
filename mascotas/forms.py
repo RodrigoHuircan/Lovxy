@@ -85,3 +85,41 @@ class RegistroUserForm(UserCreationForm):
     class Meta: 
         model=User 
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
+        labels = {
+            'username': 'Nombre de usuario',
+            'first_name': 'Nombre',
+            'last_name': 'Apellido',
+            'email': 'Correo electrónico',
+            'password1': 'Contraseña',
+            'password2': 'Confirma la contraseña',
+        }
+        help_texts = {
+            'username': 'Requerido. 150 caracteres o menos. Solo letras, números y @/./+/-/_',
+            'password1': 'Debe contener al menos 8 caracteres.',
+            'password2': 'Introduce la misma contraseña para verificar.',
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        # Sobrescribir etiquetas de los campos
+        self.fields['password1'].label = 'Contraseña'
+        self.fields['password2'].label = 'Confirma tu contraseña'
+
+        # Personalizar textos de ayuda
+        self.fields['password1'].help_text = (
+            'Tu contraseña debe contener al menos 8 caracteres, '
+            'no puede ser una contraseña común y no debe estar compuesta solo de números.'
+        )
+        self.fields['password2'].help_text = 'Por favor, repite la misma contraseña para confirmarla.'
+
+        # Opcional: Personalizamos los mensajes de error
+        self.fields['password1'].error_messages = {
+            'required': 'Este campo es obligatorio.',
+        }
+        self.fields['password2'].error_messages = {
+            'required': 'Este campo es obligatorio.',
+        }

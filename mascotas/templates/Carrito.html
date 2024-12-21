@@ -1,3 +1,14 @@
+{% load static %}
+<link
+rel="stylesheet"
+href="{% static 'css/EstilosGlobales.css' %}"
+type="text/css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    const loginUrl = "{% url 'login' %}";
+    const inicioUrl = "{% url 'Inicio' %}";
+</script>
 <div class="container" >
 <div role="alert">
     <table class="table table-bordered black">
@@ -15,8 +26,8 @@
                         <td style="font-size:13px">{{ value.precio }}</td>
                         <td style="font-size:13px">{{ value.cantidad }}
                             <br>
-                            <a href="{% url 'agregar' value.codigo %}" class="badge btn btn-primary">+</a>
-                            <a href="{% url 'restar'  value.codigo %}" class="badge btn btn-warning">-</a>
+                            <a href="{% url 'agregar' value.codigo %}" class="badge btn btn-dark">+</a>
+                            <a href="{% url 'restar'  value.codigo %}" class="badge btn btn-dark">-</a>
                         </td>
                     </tr>
                     <tr>
@@ -37,7 +48,7 @@
 </div>
 <div class="row text-center">
     <div class="col-6">
-        <a href="{% url 'limpiar' %}" class="btn btn-outline-warning">Limpiar</a> 
+        <a href="{% url 'limpiar' %}" class="btn btn-outline-danger">Limpiar</a> 
        </div> 
        {% if mensaje %}
         <div class="col-6">
@@ -46,9 +57,17 @@
                 {{mensaje}}
             </div>
         </div>
-        {% else %}   
-            <div class="col-6">
-                <a href="{% url 'generarBoleta' %}" class="btn btn-outline-primary">Comprar</a>
-            </div>
+        {% else %}
+            {% if user.is_authenticated %}
+                <div>
+                    <a href="{% url 'generarBoleta' %}" class="btn btn-outline-dark">Comprar</a>
+                </div>
+            {% else %}   
+                <div class="col-6">
+                    <button class="btn btn-outline-dark" onclick="alertaNoAutenticado()">Comprar</button>
+                </div>
+            {% endif %}
         {% endif %}
 </div>
+
+<script src="{% static 'js/Alertas.js' %}"></script>

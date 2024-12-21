@@ -1,5 +1,5 @@
 /**?Definición de Fuentes**/
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -7,24 +7,24 @@
 }
 
 /**?Pie de Página**/
-.pie-pagina{
+.pie-pagina {
     width: 100%;
     background-color: #000000;
     margin-top: 0;
     padding-top: 0;
 }
 
-.pie-pagina .seccion1{
+.pie-pagina .seccion1 {
     width: 100%;
     max-width: 1200px;
     margin: auto;
-    display:grid;
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap:50px;
+    grid-gap: 50px;
     padding: 25px 0px;
 }
 
-.pie-pagina .seccion1 .info figure{
+.pie-pagina .seccion1 .info figure {
     width: 100%;
     height: 100%;
     display: flex;
@@ -32,22 +32,22 @@
     align-items: center;
 }
 
-.pie-pagina .seccion1 .info figure img{
+.pie-pagina .seccion1 .info figure img {
     width: 150px;
 }
 
-.pie-pagina .seccion1 .info h2{
+.pie-pagina .seccion1 .info h2 {
     color: #fff;
     margin-bottom: 20px;
     font-size: 20px;
 }
 
-.pie-pagina .seccion1 .info p{
+.pie-pagina .seccion1 .info p {
     color: #efefef;
     margin-bottom: 10px;
 }
 
-.pie-pagina .seccion1 .info a{
+.pie-pagina .seccion1 .info a {
     display: inline-block;
     text-decoration: none;
     width: 45px;
@@ -60,30 +60,60 @@
     transition: all 300ms ease;
 }
 
-.pie-pagina .seccion1 .red-social a:hover{
+.pie-pagina .seccion1 .red-social a:hover {
     color: rgb(232, 97, 39);
 }
 
-.pie-pagina .seccion2{
+.pie-pagina .seccion2 {
     background-color: #000000;
     padding: 15px 10px;
     text-align: center;
     color: #fff;
 }
 
-.pie-pagina .seccion2 small{
+.pie-pagina .seccion2 small {
     font-size: 12px;
 }
 
-@media screen and (max-width:800px){
-    .pie-pagina .seccion1{
+@media screen and (max-width:800px) {
+    .pie-pagina .seccion1 {
         width: 90%;
         grid-template-columns: repeat(1, 1fr);
-        grid-gap:30px;
+        grid-gap: 30px;
         padding: 35px 0px;
     }
 }
 
 .carousel-item {
-    transition: opacity 1s ease-in-out; /* Controla la duración y el tipo de transición */
+    transition: opacity 1s ease-in-out;
+    /* Controla la duración y el tipo de transición */
+}
+
+/*Botón de sweet alert customizado*/
+
+.btn-custom {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-custom:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/*Personalización del footer de sweet alert*/
+/*Aquí quite la estética de enlace*/
+.footer-custom a {
+    text-decoration: none;
+    color: #000;
+}
+
+/*Añadí un hove para interactividad*/
+.footer-custom a:hover {
+    color: #333;
 }
